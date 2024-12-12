@@ -1,0 +1,13 @@
+{% extends "estructura/principal.html" %}
+    {% block header %}
+        <h1>Listado de enlaces</h1>
+    {% endblock %}
+
+    {% block contenido %}
+        <h3>1-URL que muestra una lista de todas 
+        las promociones con sus datos correspondientes.
+        </h3>
+        <a href="{% url 'lista_promociones' %}">Lista de promociones</a>
+        <a href="{% url 'promocion_create' %}">Crear promocion</a>
+
+    {% endblock %}

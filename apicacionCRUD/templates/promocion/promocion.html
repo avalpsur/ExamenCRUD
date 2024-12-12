@@ -1,0 +1,36 @@
+<div>
+    <h2>Nombre: {{ promocion.nombre}}</h2>
+    <p>Descripcion: {{ promocion.descripcion }}</p>
+    <h3>Productos: </h3>
+    {% for producto in promocion.producto.all %}
+            <li>
+                <p>Nombre: </p>{{ promocion.producto.nombre }}
+            </li>
+    {% endfor %}
+    
+    <h3>Usuarios: </h3>
+    {% for usuario in promocion.usuario.all %}
+            <li>
+                <p>Nombre: </p>{{ promocion.usuario.nombre }}
+            </li>
+    {% endfor %}
+
+    <p>Descuento: {{ promocion.descuento }}%</p>
+    <p>FechaPromocion: {{ promocion.fechaPromocion }}</p>
+    <p>FechaFinPromocion: {{ promocion.fechaFinPromocion }}</p>
+    <p>¿Está activa?: {{promocion.esta_activa}}</p>
+</div>
+
+{% load bootstrap_icons %}
+<div class="row btn-group">
+    <div class="mb-2">
+        <form action = "{% url 'promocion_eliminar' promocion.id %}" method = "post"> 
+            {% csrf_token %}
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                <span>{% bs_icon 'trash' %}</span>
+            </button> 
+        </form>
+    </div>
+</div>
+<hr>
+

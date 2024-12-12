@@ -1,0 +1,10 @@
+{% extends "estructura/principal.html" %}
+{% block header %}
+    <h1>Lista de Promociones</h1>
+{% endblock %}
+
+{% block contenido %}
+    {% for promocion in promociones %}
+        {% include 'promocion/promocion.html' %}
+    {% endfor %}
+{% endblock %}
